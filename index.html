@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Regular Boilerplating -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- PicoCSS Setup -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+    <!-- Website Setup -->
+    <title>Pomodoro Timer</title>
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <hgroup>
+        <h1>Pomodoro Clock</h1>
+        <h3>25 + 5 Timer</h3>
+      </hgroup>
+      <div class="grid">
+        <div class="break-selector">
+          <h3>Break Length</h3>
+          <div class="grid">
+            <button class="contrast" id="break-reduce">-</button>
+            <h3 id="break-time">5</h3>
+            <button class="contrast" id="break-increase">+</button>
+          </div>
+        </div>
+        <div class="work-selector">
+          <h3>Work Length</h3>
+          <div class="grid">
+            <button class="contrast" id="work-reduce">-</button>
+            <h3 id="work-time">25</h3>
+            <button class="contrast" id="work-increase">+</button>
+          </div>
+        </div>
+      </div>
+      <div id="timer">
+        <h3>Session <span id="timer-name">WORK</span></h3>
+        <h2>
+          <span id="timer-minutes">25</span>:<span id="timer-seconds">00</span>
+        </h2>
+      </div>
+      <div class="grid">
+        <button class="contrast" id="timer-toggle">⏯</button>
+        <button class="contrast" id="timer-reset">🔄</button>
+      </div>
+    </div>
+  </body>
+</html>
