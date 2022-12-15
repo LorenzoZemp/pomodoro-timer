@@ -59,6 +59,7 @@ function reset() {
 // Break Button Event Listeners
 // Reduces and Increases break time by 1 minute intervals
 breakReduceBtn.addEventListener("click", () => {
+  debugger;
   if (isPaused == false) {
     return;
   }
@@ -66,11 +67,21 @@ breakReduceBtn.addEventListener("click", () => {
   if (breakTimeSeconds <= 60) {
     return;
   }
+
+  if (breakTimeSeconds != 5 * 60) {
+    breakTimeSeconds = Math.ceil(breakTimeSeconds / 60) * 60;
+  }
+
   breakTimeSeconds -= 60;
   breakTime.textContent = breakTimeSeconds / 60;
+
+  if (isWorking == false) {
+    updateTimer(breakTimeSeconds);
+  }
 });
 
 breakIncreaseBtn.addEventListener("click", () => {
+  debugger;
   if (isPaused == false) {
     return;
   }
@@ -78,8 +89,17 @@ breakIncreaseBtn.addEventListener("click", () => {
   if (breakTimeSeconds >= 3600) {
     return;
   }
+
+  if (breakTimeSeconds != 5 * 60) {
+    breakTimeSeconds = Math.ceil(breakTimeSeconds / 60) * 60;
+  }
+
   breakTimeSeconds += 60;
   breakTime.textContent = breakTimeSeconds / 60;
+
+  if (isWorking == false) {
+    updateTimer(breakTimeSeconds);
+  }
 });
 
 // Work Button Event Listeners
@@ -92,6 +112,11 @@ workReduceBtn.addEventListener("click", () => {
   if (workTimeSeconds <= 60) {
     return;
   }
+
+  if (workTimeSeconds != 25 * 60) {
+    workTimeSeconds = Math.ceil(workTimeSeconds / 60) * 60;
+  }
+
   workTimeSeconds -= 60;
   workTime.textContent = workTimeSeconds / 60;
 
@@ -108,6 +133,11 @@ workIncreaseBtn.addEventListener("click", () => {
   if (workTimeSeconds >= 3600) {
     return;
   }
+
+  if (workTimeSeconds != 25 * 60) {
+    workTimeSeconds = Math.ceil(workTimeSeconds / 60) * 60;
+  }
+
   workTimeSeconds += 60;
   workTime.textContent = workTimeSeconds / 60;
 
@@ -160,7 +190,7 @@ timerToggle.addEventListener("click", () => {
       }
     }, 1000);
   } else if (isWorking == false && isPaused == false) {
-    isPaused == true;
+    isPaused = true;
     clearInterval(breakCountdown);
   }
 });
