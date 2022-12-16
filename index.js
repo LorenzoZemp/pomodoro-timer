@@ -56,6 +56,12 @@ function reset() {
   clearInterval(breakCountdown);
 }
 
+// Play Sound Function
+function playSound() {
+  let a = new Audio("audio/ding.wav");
+  a.play();
+}
+
 // Break Button Event Listeners
 // Reduces and Increases break time by 1 minute intervals
 breakReduceBtn.addEventListener("click", () => {
@@ -156,6 +162,7 @@ timerToggle.addEventListener("click", () => {
       updateTimer(workTimeSeconds);
 
       if (workTimeSeconds === 0) {
+        playSound();
         clearInterval(workCountdown);
         isWorking = false;
         isPaused = true;
@@ -172,14 +179,13 @@ timerToggle.addEventListener("click", () => {
 
   // Break Session Timer
   if (isWorking == false && isPaused == true) {
-    // debugger;
     isPaused = false;
     breakCountdown = setInterval(() => {
       breakTimeSeconds -= 1;
       updateTimer(breakTimeSeconds);
 
       if (breakTimeSeconds === 0) {
-        // debugger;
+        playSound();
         clearInterval(breakCountdown);
         isWorking = true;
         isPaused = true;
