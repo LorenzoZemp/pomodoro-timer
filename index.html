@@ -10,37 +10,39 @@
       rel="stylesheet"
       href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
     />
+    <!-- Additional Stylesheet setup -->
+    <link rel="stylesheet" href="style.css" />
     <!-- Website Setup -->
     <title>Pomodoro Timer</title>
     <script src="./index.js" defer></script>
   </head>
   <body>
-    <div class="container">
+    <div class="container m-top-15">
       <hgroup>
         <h1>Pomodoro Clock</h1>
         <h3>25 + 5 Timer</h3>
       </hgroup>
       <div class="grid">
         <div class="break-selector">
-          <h3>Break Length</h3>
+          <h3 class="text-center">Break Length</h3>
           <div class="grid">
             <button class="contrast" id="break-reduce">-</button>
-            <h3 id="break-time">5</h3>
+            <h3 class="text-center" id="break-time">5</h3>
             <button class="contrast" id="break-increase">+</button>
           </div>
         </div>
         <div class="work-selector">
-          <h3>Work Length</h3>
+          <h3 class="text-center">Work Length</h3>
           <div class="grid">
             <button class="contrast" id="work-reduce">-</button>
-            <h3 id="work-time">25</h3>
+            <h3 class="text-center" id="work-time">25</h3>
             <button class="contrast" id="work-increase">+</button>
           </div>
         </div>
       </div>
       <div id="timer">
-        <h3>Session <span id="timer-name">WORK</span></h3>
-        <h2>
+        <h3 class="text-center">Session <span id="timer-name">WORK</span></h3>
+        <h2 class="text-center">
           <span id="timer-minutes">25</span>:<span id="timer-seconds">00</span>
         </h2>
       </div>

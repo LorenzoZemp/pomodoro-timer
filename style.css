@@ -1,4 +1,8 @@
 .text-center {
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.m-top-15 {
+  margin-top: 15px;
 }
