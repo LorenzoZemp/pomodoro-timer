@@ -52,6 +52,7 @@ function reset() {
   workTime.textContent = workTimeSeconds / 60;
 
   updateTimer(workTimeSeconds);
+  timerName.textContent = "WORK";
 
   clearInterval(workCountdown);
   clearInterval(breakCountdown);
@@ -66,7 +67,6 @@ function playSound() {
 // Break Button Event Listeners
 // Reduces and Increases break time by 1 minute intervals
 breakReduceBtn.addEventListener("click", () => {
-  debugger;
   if (isPaused == false) {
     return;
   }
@@ -88,7 +88,6 @@ breakReduceBtn.addEventListener("click", () => {
 });
 
 breakIncreaseBtn.addEventListener("click", () => {
-  debugger;
   if (isPaused == false) {
     return;
   }
@@ -209,7 +208,6 @@ resetBtn.addEventListener("click", () => {
 
 //
 skipBtn.addEventListener("click", () => {
-  debugger;
   // if is working
   // skip to break
   // else skip to work
