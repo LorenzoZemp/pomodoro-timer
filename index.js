@@ -27,6 +27,7 @@ const timerName = document.getElementById("timer-name");
 // Timer Button Elements
 const timerToggle = document.getElementById("timer-toggle");
 const resetBtn = document.getElementById("timer-reset");
+const skipBtn = document.getElementById("timer-skip");
 
 // Update Timer Function
 function updateTimer(seconds) {
@@ -201,6 +202,32 @@ timerToggle.addEventListener("click", () => {
   }
 });
 
+//Add event listener to reset button to reset timer.
 resetBtn.addEventListener("click", () => {
   reset();
+});
+
+//
+skipBtn.addEventListener("click", () => {
+  debugger;
+  // if is working
+  // skip to break
+  // else skip to work
+  if (isWorking == true) {
+    isPaused = true;
+    isWorking = false;
+    timerName.textContent = "BREAK";
+    breakTimeSeconds = parseInt(breakTime.textContent * 60);
+
+    updateTimer(breakTimeSeconds);
+    clearInterval(workCountdown);
+  } else if (isWorking == false) {
+    isPaused = true;
+    isWorking = true;
+    timerName.textContent = "WORK";
+    workTimeSeconds = parseInt(workTime.textContent * 60);
+
+    updateTimer(workTimeSeconds);
+    clearInterval(breakCountdown);
+  }
 });
